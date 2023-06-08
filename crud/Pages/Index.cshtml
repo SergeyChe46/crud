@@ -1,0 +1,29 @@
+﻿@page
+@using crud.Models;
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>Index</h1>
+<div class="text-center container">
+    <div class="row align-items-start">
+    @foreach(Blog blog in Model.Blogs)
+    {
+        <div class="card border-primary" style="width: 10rem;" >
+            <div class="card-body">
+                <h5 class="card-title">@blog.Title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@blog.CreatedAt</h6>
+                <p class="card-text">@blog.Content</p>
+                <div>
+                    <a asp-page="/Blogs/DetailBlog" asp-route-id="@blog.Id" class="btn btn-primary">К статье</a>
+                </div>
+                <div class="mt-1">
+                    <a href="#" class="btn btn-primary">К автору</a>
+                </div>
+            </div>
+        </div>
+    }
+    </div>
+</div>
+

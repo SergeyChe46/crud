@@ -1,0 +1,30 @@
+﻿@page
+@model crud.Pages.Blogs.AddModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Create";
+}
+@section Scripts{
+    <script>
+        tinymce.init({
+            selector: 'textarea#content'
+        });
+    </script>
+}
+
+<h1>Add new Blog</h1>
+<form method="post">
+    <div class="mb-3">
+        <input class="form-control" type="text" placeholder="Здесь будет пользователь" aria-label="Disabled input example" disabled>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" >Заголовок</label>
+        <input type="text" class="form-control" asp-for="Blog.Title" placeholder="Заголовок">
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Blog.Content">Контент</label>
+        <textarea class="form-control" id="content" asp-for="Blog.Content" rows="3"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Создать</button>
+</form>
+
