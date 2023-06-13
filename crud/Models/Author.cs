@@ -1,8 +1,10 @@
-﻿namespace crud.Models
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
+
+namespace crud.Models
 {
-    public class Author
+    public class Author : IdentityUser
     {
-        public int Id { get; set; }
-        public string Email { get; set; }
+        public ICollection<Blog> Blogs { get; set; }
     }
 }

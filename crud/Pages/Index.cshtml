@@ -14,12 +14,11 @@
             <div class="card-body">
                 <h5 class="card-title">@blog.Title</h5>
                 <h6 class="card-subtitle mb-2 text-muted">@blog.CreatedAt</h6>
-                <p class="card-text">@blog.Content</p>
                 <div>
                     <a asp-page="/Blogs/DetailBlog" asp-route-id="@blog.Id" class="btn btn-primary">К статье</a>
                 </div>
                 <div class="mt-1">
-                    <a href="#" class="btn btn-primary">К автору</a>
+                    <a asp-page="/Authors/DetailAuthor" asp-route-id="" class="btn btn-primary">К автору</a>
                 </div>
             </div>
         </div>

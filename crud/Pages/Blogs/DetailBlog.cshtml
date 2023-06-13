@@ -4,4 +4,4 @@
     ViewData["Title"] = Model.Blog.Title;
 }
 
-<h1>@Model.Blog.Content</h1>
+<div>@Html.Raw(@Model.Blog.Content)</div>

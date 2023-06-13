@@ -1,4 +1,6 @@
-﻿using crud.Repository;
+﻿using crud.Models;
+using crud.Repository;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace crud.Services.RegisterServices
@@ -12,6 +14,12 @@ namespace crud.Services.RegisterServices
                 opts => opts.UseNpgsql(
                     configuration.GetConnectionString("postgres")),
                     ServiceLifetime.Scoped);
+        }
+        public static void RegisterIdentity(this IServiceCollection services,
+                                            IConfiguration configuration)
+        {
+            services.AddIdentity<Author, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationContext>();
         }
     }
 }

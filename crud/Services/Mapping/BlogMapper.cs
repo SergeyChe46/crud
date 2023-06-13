@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using crud.Models;
 using crud.Models.ViewModels;
-using Microsoft.AspNetCore.Routing.Constraints;
 
 namespace crud.Services.Mapping
 {
@@ -13,6 +12,7 @@ namespace crud.Services.Mapping
             {
                 cfg.CreateMap<BlogViewModels, Blog>()
                     .ForMember(dst => dst.Title, src => src.MapFrom(o => o.Title))
+                    .ForMember(dst => dst.Author, src => src.MapFrom(o => new Author { Id = o.AuthorId }))
                     .ForMember(dst => dst.Content, src => src.MapFrom(o => o.Content));
             });
             var mapper = new Mapper(config);

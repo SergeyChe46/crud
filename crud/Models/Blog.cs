@@ -1,4 +1,6 @@
-﻿namespace crud.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace crud.Models
 {
     public class Blog
     {
@@ -7,6 +9,7 @@
         public string? Content { get; set; }
         public DateTime CreatedAt { get; init; } = DateTime.Now;
         public DateTime EditedAt { get; set; } = DateTime.Now;
+        public Author? Author { get; set; }
         public ICollection<Tag>? Tags { get; set; }
     }
 }

@@ -3,10 +3,13 @@ using crud.Services.RegisterServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
+IConfiguration config = builder.Configuration;
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.RegisterDatabase(builder.Configuration);
+builder.Services.RegisterDatabase(config);
 builder.Services.RegisterDependencyInjection();
+builder.Services.RegisterIdentity(config);
+
 var app = builder.Build();
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 // Configure the HTTP request pipeline.
@@ -21,6 +24,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();

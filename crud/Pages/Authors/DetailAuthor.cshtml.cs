@@ -18,7 +18,7 @@ namespace crud.Pages.Authors
 
         public void OnGet(int id)
         {
-            Author = _composite.Authors.GetByExpression(a => a.Id == id).First();
+            //Author = _composite.Authors.GetByExpression(a => a.Id == id).First();
         }
     }
 }

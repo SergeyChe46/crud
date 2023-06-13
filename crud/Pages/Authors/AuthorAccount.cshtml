@@ -1,0 +1,27 @@
+﻿@page
+@model crud.Pages.Authors.AuthorAccountModel
+@{
+}
+
+<h2>Регистрация нового пользователя</h2>
+<form method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="Model.Email"></label><br />
+        <input asp-for="Model.Email" />
+        <span asp-validation-for="Model.Email"></span>
+    </div>
+    <div>
+        <label asp-for="Model.Password"></label><br />
+        <input asp-for="Model.Password" />
+        <span asp-validation-for="Model.Password"></span>
+    </div>
+    <div>
+        <label asp-for="Model.PasswordConfirm"></label><br />
+        <input asp-for="Model.PasswordConfirm" />
+        <span asp-validation-for="Model.PasswordConfirm"></span>
+    </div>
+    <div>
+        <button class="btn-primary" type="submit">Регистрация</button>
+    </div>
+</form>
